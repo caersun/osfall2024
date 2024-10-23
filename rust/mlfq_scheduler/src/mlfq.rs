@@ -34,7 +34,7 @@ impl MLFQ {
         // Set priority to current process.priority
         let mut priority:usize = process.priority;
 
-        // Check process priority is within valid range
+        // Check process priority is not within valid range
         if priority > self.num_levels - 1 {
             // Set priority to lowest priority available
             priority = self.num_levels - 1;
@@ -77,6 +77,7 @@ impl MLFQ {
                 }
             } else {
                 // Process will complete within time_quantum
+                // Set times
                 self.current_time += process.remaining_time;
                 process.total_executed_time += process.remaining_time;
                 process.remaining_time = 0;
