@@ -34,7 +34,7 @@ impl MLFQ {
         // Set priority to current process.priority
         let mut priority:usize = process.priority;
 
-        // Check process priority is not within valid range
+        // Check process priority is within valid range
         if priority > self.num_levels - 1 {
             // Set priority to lowest priority available
             priority = self.num_levels - 1;
